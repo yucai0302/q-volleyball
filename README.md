@@ -1,6 +1,20 @@
 # Q 版排球（q-volleyball）
 
+简体中文 | [English](README.en.md)
+
 网页端开箱即玩的 Q 版 3D 排球，人机对战版。固定 3/4 俯视角、2v2 对战、先到 7 分、三局两胜。
+
+![对局画面](docs/screenshots/rally-hit.png)
+
+## 截图
+
+| 开始界面 | 对方发球 |
+| --- | --- |
+| ![开始界面](docs/screenshots/start.png) | ![对方发球](docs/screenshots/serve.png) |
+
+| 网上对攻 | 触球反馈 |
+| --- | --- |
+| ![网上对攻](docs/screenshots/rally.png) | ![触球反馈](docs/screenshots/rally-hit.png) |
 
 ## 一期已完成
 
@@ -18,7 +32,7 @@
 | `W` `A` `S` `D` | 移动 |
 | `Shift` | 冲刺 / 扑救 |
 | `Space` | 跳跃 |
-| `J` | 击球 / 扣球（可按住持续挥击） |
+| `J` | 击球 / 扣球（可按住持续蓄力挥击） |
 | `K` | 网前自动起跳拦网 |
 | `Esc` | 暂停 |
 | `M` | 音效开关 |
@@ -32,6 +46,10 @@ npm run build    # 类型检查 + 生产构建（输出 dist/）
 npm run preview  # 预览构建产物
 ```
 
+## 技术栈
+
+TypeScript + Vite + Three.js + Rapier（物理）+ tween.js（补间动画）。
+
 ## 项目结构
 
 ```
@@ -44,6 +62,7 @@ src/
   ui/hud.ts          HUD 与各界面
   audio/audio.ts     音效合成
   core/              事件总线与数学工具
+docs/screenshots/    截图
 .trae/               需求文档与美术参考图
 ```
 
