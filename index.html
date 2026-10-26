@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#cfe8fa" />
+    <title>Q 版排球 · 本地人机版</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏐</text></svg>" />
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="scene"></canvas>
+
+      <div id="ui">
+        <!-- 顶部记分板 -->
+        <div class="hud-top">
+          <div class="timer" id="timer">90</div>
+          <div class="scoreboard">
+            <div class="team home">HOME</div>
+            <div class="score"><span id="score-home">0</span><i>—</i><span id="score-away">0</span></div>
+            <div class="team away">AWAY</div>
+          </div>
+          <div class="sb-sub">
+            <span id="set-label">SET 1</span>
+            <span id="dots" class="dots"></span>
+            <span class="to">to 7</span>
+          </div>
+          <div class="set-dots" id="set-dots"></div>
+        </div>
+
+        <!-- 中央播报 -->
+        <div id="announce" class="announce">
+          <b></b>
+          <span></span>
+        </div>
+
+        <!-- 触球计数 -->
+        <div class="touch" id="touch">
+          <span class="touch-label">触球</span>
+          <div class="pips" id="touch-pips"><i></i><i></i><i></i></div>
+        </div>
+
+        <!-- 发球蓄力 -->
+        <div class="servebar" id="servebar">
+          <span>蓄力</span>
+          <div class="servebar-track"><div class="servebar-fill" id="serve-fill"></div></div>
+        </div>
+
+        <!-- 操作提示 -->
+        <div class="hint">
+          <div><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 移动</div>
+          <div><kbd>Shift</kbd> 冲刺扑救</div>
+          <div><kbd>Space</kbd> 跳跃</div>
+          <div><kbd>J</kbd> 击球（按住持续挥击）</div>
+          <div><kbd>K</kbd> 网前自动起跳拦网</div>
+          <div><kbd>Esc</kbd> 暂停</div>
+        </div>
+
+        <!-- 飘字层 -->
+        <div id="fx-layer"></div>
+      </div>
+
+      <!-- 开始界面 -->
+      <div class="screen" id="start">
+        <div class="panel">
+          <div class="logo"><span>Q</span>版排球</div>
+          <p class="tagline">2v2 人机训练赛 · 先到 7 分 · 三局两胜</p>
+          <div class="row">
+            <span class="row-label">难度</span>
+            <div class="seg" id="difficulty">
+              <button data-skill="easy">简单</button>
+              <button data-skill="normal" class="on">普通</button>
+              <button data-skill="hard">困难</button>
+            </div>
+          </div>
+          <button class="btn primary" id="btn-start">开始比赛</button>
+          <div class="keys">
+            <span><kbd>WASD</kbd> 移动</span>
+            <span><kbd>Shift</kbd> 冲刺 / 扑救</span>
+            <span><kbd>Space</kbd> 跳跃</span>
+            <span><kbd>J</kbd> 击球 / 扣球（可按住）</span>
+            <span><kbd>K</kbd> 网前拦网</span>
+          </div>
+          <p class="tip">球落下前把它打过网：一传垫给队友 → 二传托到网前 → 起跳扣杀</p>
+        </div>
+      </div>
+
+      <!-- 结算界面 -->
+      <div class="screen hidden" id="result">
+        <div class="panel">
+          <h2 id="result-title">胜利</h2>
+          <p class="tagline" id="result-sub"></p>
+          <div class="result-score" id="result-score">2 : 0</div>
+          <div class="mvp" id="result-mvp"></div>
+          <div class="row-btns">
+            <button class="btn primary" id="btn-again">再来一局</button>
+            <button class="btn" id="btn-home">返回大厅</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 暂停界面 -->
+      <div class="screen hidden" id="pause">
+        <div class="panel">
+          <h2>暂停</h2>
+          <div class="row-btns">
+            <button class="btn primary" id="btn-resume">继续比赛</button>
+            <button class="btn" id="btn-quit">返回大厅</button>
+          </div>
+          <p class="tip">音效开关：<kbd>M</kbd></p>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
