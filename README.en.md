@@ -82,6 +82,14 @@ Day-to-day commits use the `feat: / fix: / refactor: / docs: / chore:` prefixes;
 
 ## Changelog
 
+### v0.2.0 — Phase 2 · Chibi character visual upgrade
+
+- Rebuilt character proportions: bigger head, shorter limbs, feet grounded
+- New face: large eyes with highlights, blush and smile, plus blinking and mood expressions
+- Four procedural hairstyles (bob / side part + headband / ponytail / twin buns) with back-of-head coverage
+- Jersey details: short sleeves, cuffs, side stripes, back numbers, knee pads, socks, shoes and wristbands
+- Toon outlines on head and torso, raised name tag, clearer character silhouettes
+
 ### v0.1.0 — Phase 1
 
 - Complete AI match is playable
